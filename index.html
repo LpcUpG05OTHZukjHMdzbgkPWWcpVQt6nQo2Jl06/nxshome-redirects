@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Weiterleitung läuft...</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .box {
+            text-align: center;
+            padding: 2rem;
+            background: #1e293b;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>🚀 Weiterleitung...</h2>
+        <p id="status">Ziel wird ermittelt...</p>
+    </div>
+
+    <script>
+        async function handleRedirect() {
+            const hostname = window.location.hostname; // z.B. amzn.nxshome.de oder kurz.nxshome.de
+            const pathname = window.location.pathname; // z.B. /yt oder /
+            
+            let key = "";
+            const parts = hostname.split('.');
+
+            // Fall 1: Subdomain-Modus (z.B. amzn.nxshome.de)
+            if (parts.length > 2 && parts[0] !== 'www' && parts[0] !== 'kurz') {
+                key = parts[0];
+            } 
+            // Fall 2: Pfad-Modus NUR WENN die Subdomain exakt "kurz" ist (z.B. kurz.nxshome.de/yt)
+            else if (parts.length >= 3 && parts[0] === 'kurz' && pathname.length > 1) {
+                key = pathname.substring(1).split('/')[0];
+            }
+
+            if (!key) {
+                document.getElementById('status').innerText = "Kein gültiges Ziel angegeben.";
+                return;
+            }
+
+            try {
+                const response = await fetch('https://raw.githubusercontent.com/LpcUpG05OTHZukjHMdzbgkPWWcpVQt6nQo2Jl06/nxshome-redirects/refs/heads/main/urls.txt');
+                const text = await response.text();
+                
+                let targetUrl = "";
+                const lines = text.split('\n');
+                
+                for (let line of lines) {
+                    const lineParts = line.trim().split(/\s+/);
+                    if (lineParts.length >= 2 && lineParts[0] === key) {
+                        targetUrl = lineParts[1];
+                        break;
+                    }
+                }
+
+                if (targetUrl) {
+                    document.getElementById('status').innerText = `Leite weiter zu ${targetUrl}...`;
+                    window.location.replace(targetUrl);
+                } else {
+                    document.getElementById('status').innerText = `Ziel "${key}" wurde nicht gefunden.`;
+                }
+            } catch (error) {
+                document.getElementById('status').innerText = "Fehler beim Laden der Weiterleitungsliste.";
+                console.error(error);
+            }
+        }
+
+        handleRedirect();
+    </script>
+</body>
+</html>
