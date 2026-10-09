@@ -1,2 +1,3 @@
 ginko https://brackenheim.church.tools/publicgroup/333
 cl https://cloudflare.com
+zagy https://zagy.de
