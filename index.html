@@ -59,12 +59,14 @@
                 return;
             }
 
-            const activeUrl = 'https://raw.githubusercontent.com/LpcUpG05OTHZukjHMdzbgkPWWcpVQt6nQo2Jl06/nxshome-redirects/refs/heads/main/urls.txt';
-            const goneUrl = 'https://raw.githubusercontent.com/LpcUpG05OTHZukjHMdzbgkPWWcpVQt6nQo2Jl06/nxshome-redirects/refs/heads/main/gone.txt';
+            // Zeitstempel für Cache-Busting erzeugen (verhindert das Cischen von urls.txt / gone.txt)
+            const cacheBuster = Date.now();
+            const activeUrl = `https://raw.githubusercontent.com/LpcUpG05OTHZukjHMdzbgkPWWcpVQt6nQo2Jl06/nxshome-redirects/refs/heads/main/urls.txt?t=${cacheBuster}`;
+            const goneUrl = `https://raw.githubusercontent.com/LpcUpG05OTHZukjHMdzbgkPWWcpVQt6nQo2Jl06/nxshome-redirects/refs/heads/main/gone.txt?t=${cacheBuster}`;
 
             try {
                 // 1. Aktive Weiterleitungen prüfen
-                const responseActive = await fetch(activeUrl);
+                const responseActive = await fetch(activeUrl, { cache: 'no-store' });
                 const textActive = await responseActive.text();
                 
                 let targetUrl = "";
@@ -85,7 +87,7 @@
                 }
 
                 // 2. Prüfen, ob der Link deaktiviert wurde (gone.txt)
-                const responseGone = await fetch(goneUrl);
+                const responseGone = await fetch(goneUrl, { cache: 'no-store' });
                 const textGone = await responseGone.text();
                 const linesGone = textGone.split('\n');
                 
