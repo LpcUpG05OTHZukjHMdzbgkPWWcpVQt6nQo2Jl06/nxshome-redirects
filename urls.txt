@@ -1,4 +1,1 @@
-amzn https://www.amazon.de
-yt https://www.youtube.com
-discord https://discord.com
 ginko https://brackenheim.church.tools/publicgroup/333
