@@ -53,11 +53,9 @@
                 }
             }
 
+            // Wenn kein Key angegeben wurde -> sofort zur Startseite
             if (!key) {
-                document.getElementById('status').innerText = "Kein gültiges Ziel angegeben. Weiterleitung zu nxshome.de in 3s...";
-                setTimeout(() => {
-                    window.location.replace('https://nxshome.de');
-                }, 3000);
+                window.location.replace('https://nxshome.de');
                 return;
             }
 
@@ -101,21 +99,19 @@
                 }
 
                 if (isGone) {
-                    document.getElementById('status').innerText = `Diese Weiterleitung ist nicht mehr aktiv. Weiterleitung in 3s...`;
+                    // Deaktivierter Link: 5 Sekunden anzeigen und dann weiterleiten
+                    document.getElementById('status').innerText = `Diese Weiterleitung ist nicht mehr aktiv.`;
+                    setTimeout(() => {
+                        window.location.replace('https://nxshome.de');
+                    }, 5000);
                 } else {
-                    document.getElementById('status').innerText = `Ziel "${key}" wurde nicht gefunden. Weiterleitung in 3s...`;
+                    // Nicht existierender Link / Tippfehler: Sofort weiterleiten
+                    window.location.replace('https://nxshome.de');
                 }
 
-                setTimeout(() => {
-                    window.location.replace('https://nxshome.de');
-                }, 3000);
-
             } catch (error) {
-                document.getElementById('status').innerText = "Fehler beim Laden der Weiterleitungsliste. Weiterleitung in 3s...";
-                console.error(error);
-                setTimeout(() => {
-                    window.location.replace('https://nxshome.de');
-                }, 3000);
+                // Bei technischem Fehler direkt zur Startseite
+                window.location.replace('https://nxshome.de');
             }
         }
 
