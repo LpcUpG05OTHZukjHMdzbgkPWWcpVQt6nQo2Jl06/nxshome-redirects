@@ -31,8 +31,8 @@
 
     <script>
         async function handleRedirect() {
-            const hostname = window.location.hostname; // z.B. amzn.nxshome.de, short.nxshome.de oder nxshome.de
-            const pathname = window.location.pathname; // z.B. /yt oder /short/yt oder /
+            const hostname = window.location.hostname;
+            const pathname = window.location.pathname;
             
             let key = "";
             const parts = hostname.split('.');
@@ -54,7 +54,10 @@
             }
 
             if (!key) {
-                document.getElementById('status').innerText = "Kein gültiges Ziel angegeben.";
+                document.getElementById('status').innerText = "Kein gültiges Ziel angegeben. Weiterleitung zu nxshome.de in 3s...";
+                setTimeout(() => {
+                    window.location.replace('https://nxshome.de');
+                }, 3000);
                 return;
             }
 
@@ -98,14 +101,21 @@
                 }
 
                 if (isGone) {
-                    document.getElementById('status').innerText = `Diese Weiterleitung ist nicht mehr aktiv.`;
+                    document.getElementById('status').innerText = `Diese Weiterleitung ist nicht mehr aktiv. Weiterleitung in 3s...`;
                 } else {
-                    document.getElementById('status').innerText = `Ziel "${key}" wurde nicht gefunden.`;
+                    document.getElementById('status').innerText = `Ziel "${key}" wurde nicht gefunden. Weiterleitung in 3s...`;
                 }
 
+                setTimeout(() => {
+                    window.location.replace('https://nxshome.de');
+                }, 3000);
+
             } catch (error) {
-                document.getElementById('status').innerText = "Fehler beim Laden der Weiterleitungsliste.";
+                document.getElementById('status').innerText = "Fehler beim Laden der Weiterleitungsliste. Weiterleitung in 3s...";
                 console.error(error);
+                setTimeout(() => {
+                    window.location.replace('https://nxshome.de');
+                }, 3000);
             }
         }
 
