@@ -1,3 +1,4 @@
-ginko https://brackenheim.church.tools/publicgroup/333
 cl https://cloudflare.com
-zagy https://zagy.de
+amzn-1 https://www.amazon.de/gp/product/B00HHIHNWQ/ref=ox_sc_act_title_1?smid=A3JWKAKR8XB7XF&th=1
+amzn-2 https://www.amazon.de/gp/product/B000YBXU6G/ref=ox_sc_act_title_2?smid=A3JWKAKR8XB7XF&th=1
+amzn-3 https://www.amazon.de/gp/product/B00EPR5EDW/ref=ox_sc_act_title_3?smid=A3JWKAKR8XB7XF&th=1
