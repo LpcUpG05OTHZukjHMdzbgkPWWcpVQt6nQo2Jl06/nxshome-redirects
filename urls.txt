@@ -2,3 +2,4 @@ cl https://cloudflare.com
 amzn-1 https://www.amazon.de/gp/product/B00HHIHNWQ/ref=ox_sc_act_title_1?smid=A3JWKAKR8XB7XF&th=1
 amzn-2 https://www.amazon.de/gp/product/B000YBXU6G/ref=ox_sc_act_title_2?smid=A3JWKAKR8XB7XF&th=1
 amzn-3 https://www.amazon.de/gp/product/B00EPR5EDW/ref=ox_sc_act_title_3?smid=A3JWKAKR8XB7XF&th=1
+monitor https://www.amazon.de/LG-UltraWide-34U650A-B-AEU-34-Zoll/dp/B0FT3XYRTJ/ref=sr_1_1?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=36M2IOLQHA5QM&dib=eyJ2IjoiMSJ9.34LOq2aaF5tc-t7ZKhzb3LeN5tuqEXO1POJ0fsARjpP7pt9I2nJoY-StaIH-3hPLRxdaOFo_jXyAzHUnUH5oHR6zV2NNjOa1mlKdPCosb6yv9YLzlihI_NXwBAnu-QRMatHj_LmTynhh9fe72yQShFjftn592Wg4hB_VKTfEU9OD8Ues1nlYvtDSKUjxInk1GwEdikzPW3PR4LcKU9bZtN-o2T1WM1IUky0a8BRmjKE.MfHx-ZDTeqNoChOeN4tRZDA9JkXUi4I-lT5T39AVzn0&dib_tag=se&keywords=LG%2BUltraWide%2B34BQ77QB-B&qid=1792239447&sprefix=lg%2Bultrawide%2B34bq77qb-b%2Caps%2C334&sr=8-1&th=1
